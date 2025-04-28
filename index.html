@@ -18,6 +18,7 @@
       flex-direction: column;
       min-height: 100vh;
     }
+    /* Navbar */
     nav {
       background: #4CAF50;
       padding: 12px 20px;
@@ -28,6 +29,7 @@
       font-size: 20px;
       font-weight: bold;
     }
+    /* Main Content */
     main {
       flex: 1;
       display: flex;
@@ -57,6 +59,7 @@
       background: #45a049;
       transform: scale(1.05);
     }
+    /* Footer */
     footer {
       background: #4CAF50;
       color: white;
@@ -86,7 +89,7 @@
   <!-- Main Section -->
   <main>
     <h1>Download and Install Jananamuna App</h1>
-    <button onclick="downloadApk()">Download APK</button>
+    <button onclick="downloadAndUnzip()">Download ZIP & APK</button>
   </main>
 
   <!-- Footer -->
@@ -94,27 +97,50 @@
     &copy; 2025 Jananamuna School | All rights reserved
   </footer>
 
-  <script>
-    async function downloadApk() {
-      try {
-        const apkUrl = 'Jananamuna.apk'; // APK must be in same folder
-        const response = await fetch(apkUrl);
-        if (!response.ok) throw new Error('Failed to download APK file.');
+  <!-- JSZip Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 
+  <script>
+    async function downloadAndUnzip() {
+      try {
+        const zipUrl = 'Jananamuna.zip'; // Same folder
+        const response = await fetch(zipUrl);
+        if (!response.ok) throw new Error('Failed to download ZIP file.');
+        
         const blob = await response.blob();
 
-        const downloadLink = document.createElement('a');
-        downloadLink.href = URL.createObjectURL(blob);
-        downloadLink.download = 'Jananamuna.apk';
-        document.body.appendChild(downloadLink);
-        downloadLink.click();
-        document.body.removeChild(downloadLink);
+        // Step 1: Download the full ZIP file
+        const zipDownloadLink = document.createElement('a');
+        zipDownloadLink.href = URL.createObjectURL(blob);
+        zipDownloadLink.download = 'Jananamuna.zip';
+        document.body.appendChild(zipDownloadLink);
+        zipDownloadLink.click();
+        document.body.removeChild(zipDownloadLink);
 
-        alert('APK downloaded! Please install it manually.');
+        // Step 2: Unzip in memory
+        const zip = await JSZip.loadAsync(blob);
+        const apkFile = zip.file('Jananamuna.apk');
+        if (!apkFile) {
+          alert('APK not found inside ZIP!');
+          return;
+        }
+
+        const apkBlob = await apkFile.async('blob');
+        const apkUrl = URL.createObjectURL(apkBlob);
+
+        // Step 3: Download the APK file
+        const apkDownloadLink = document.createElement('a');
+        apkDownloadLink.href = apkUrl;
+        apkDownloadLink.download = 'Jananamuna.apk';
+        document.body.appendChild(apkDownloadLink);
+        apkDownloadLink.click();
+        document.body.removeChild(apkDownloadLink);
+
+        alert('ZIP and APK downloaded! Please install the APK manually.');
 
       } catch (error) {
         console.error(error);
-        alert('Error occurred during APK download.');
+        alert('Error occurred during download or unzip.');
       }
     }
   </script>
