@@ -46,21 +46,37 @@
   <script>
     // Function to download and unzip the Jananamuna.zip file
     function downloadAndUnzip() {
-      // Download the Jananamuna.zip file
+      // Fetch the ZIP file from the server
       fetch('Jananamuna.zip')
-        .then(response => response.blob()) // Convert response to Blob
+        .then(response => {
+          // Check if the file was found (status code 200)
+          if (!response.ok) {
+            throw new Error('File not found. Please check the ZIP file URL.');
+          }
+          return response.blob(); // Convert the response to a blob
+        })
         .then(JSZip.loadAsync) // Use JSZip to unzip the file
         .then(zip => {
-          // Assuming the APK file inside the ZIP is named "Jananamuna.apk"
-          return zip.file('Jananamuna.apk').async('blob'); // Get the APK file as Blob
+          // Log the files inside the ZIP to the console for debugging
+          console.log('Files inside ZIP:', zip.files);
+
+          // Extract the APK file from the ZIP
+          const apkFile = zip.file('Jananamuna.apk');
+          if (!apkFile) {
+            throw new Error('APK file not found inside ZIP. Make sure the file is named correctly.');
+          }
+          return apkFile.async('blob'); // Get the APK file as Blob
         })
         .then(blob => {
-          // Use FileSaver.js to trigger download of APK
+          // Log the downloaded Blob to check if it's valid
+          console.log('APK Blob:', blob);
+
+          // Use FileSaver.js to trigger the download of the APK
           saveAs(blob, 'Jananamuna.apk'); // This will prompt the user to save the APK
         })
         .catch(error => {
           console.error('Error:', error);
-          alert('Failed to download and unzip the file. Try again.');
+          alert('Failed to download and unzip the file. Please check the console for details.');
         });
     }
   </script>
