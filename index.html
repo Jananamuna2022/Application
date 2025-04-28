@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Jananamuna ZIP</title>
+  <title>Download Jananamuna App</title>
 
   <style>
     * {
@@ -53,6 +53,7 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
+      margin: 10px;
     }
     button:hover {
       background: #45a049;
@@ -87,8 +88,8 @@
 
   <!-- Main Section -->
   <main>
-    <h1>Download Jananamuna App (ZIP)</h1>
-    <button onclick="downloadZip()">Download ZIP</button>
+    <h1>Download and Install Jananamuna App</h1>
+    <button onclick="downloadAndUnzip()">Download & Unzip APK</button>
   </main>
 
   <!-- Footer -->
@@ -96,15 +97,43 @@
     &copy; 2025 Jananamuna School | All rights reserved
   </footer>
 
+  <!-- JSZip Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
   <script>
-    function downloadZip() {
-      const zipUrl = 'Jananamuna.zip'; // Must be in same folder
-      const a = document.createElement('a');
-      a.href = zipUrl;
-      a.download = 'Jananamuna.zip';
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+    async function downloadAndUnzip() {
+      try {
+        const zipUrl = 'Jananamuna.zip'; // Zip file must be in same folder
+        const response = await fetch(zipUrl);
+        if (!response.ok) throw new Error('Failed to download ZIP file.');
+        
+        const blob = await response.blob();
+        const zip = await JSZip.loadAsync(blob);
+
+        // Look for Jananamuna.apk inside zip
+        const apkFile = zip.file('Jananamuna.apk');
+        if (!apkFile) {
+          alert('APK not found inside ZIP!');
+          return;
+        }
+
+        const apkBlob = await apkFile.async('blob');
+        const apkUrl = URL.createObjectURL(apkBlob);
+
+        // Create a link to download APK
+        const a = document.createElement('a');
+        a.href = apkUrl;
+        a.download = 'Jananamuna.apk';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+
+        alert('APK downloaded! Please install manually.');
+
+      } catch (error) {
+        console.error(error);
+        alert('Error occurred during download or unzip.');
+      }
     }
   </script>
 
