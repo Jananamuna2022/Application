@@ -3,81 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Download Jananamuna APK</title>
-
-  <!-- JSZip and FileSaver libraries -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <title>Download Jananamuna ZIP</title>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: Arial, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    /* Navbar */
+    nav {
+      background: #4CAF50;
+      padding: 12px 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    /* Main Content */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
       text-align: center;
-      margin-top: 50px;
+    }
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #333;
     }
     button {
-      padding: 12px 24px;
+      padding: 14px 28px;
       font-size: 18px;
       background: #4CAF50;
       color: white;
       border: none;
       border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
     }
     button:hover {
       background: #45a049;
+      transform: scale(1.05);
     }
-    h1 {
-      font-size: 24px;
-      margin-bottom: 20px;
+    /* Footer */
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 12px 10px;
+      font-size: 14px;
     }
-    p {
-      font-size: 16px;
-      color: #333;
+    @media (max-width: 500px) {
+      h1 {
+        font-size: 22px;
+      }
+      button {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Download Jananamuna APK</h1>
-  <p>Click the button to download and install the Jananamuna App.</p>
+  <!-- Navbar -->
+  <nav>
+    Jananamuna App Download
+  </nav>
 
-  <button onclick="downloadAndUnzip()">Download App</button>
+  <!-- Main Section -->
+  <main>
+    <h1>Download Jananamuna App (ZIP)</h1>
+    <button onclick="downloadZip()">Download ZIP</button>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2025 Jananamuna School | All rights reserved
+  </footer>
 
   <script>
-    // Function to download and unzip the Jananamuna.zip file
-    function downloadAndUnzip() {
-      // Fetch the ZIP file from the server
-      fetch('Jananamuna.zip')
-        .then(response => {
-          // Check if the file was found (status code 200)
-          if (!response.ok) {
-            throw new Error('File not found. Please check the ZIP file URL.');
-          }
-          return response.blob(); // Convert the response to a blob
-        })
-        .then(JSZip.loadAsync) // Use JSZip to unzip the file
-        .then(zip => {
-          // Log the files inside the ZIP to the console for debugging
-          console.log('Files inside ZIP:', zip.files);
-
-          // Extract the APK file from the ZIP
-          const apkFile = zip.file('Jananamuna.apk');
-          if (!apkFile) {
-            throw new Error('APK file not found inside ZIP. Make sure the file is named correctly.');
-          }
-          return apkFile.async('blob'); // Get the APK file as Blob
-        })
-        .then(blob => {
-          // Log the downloaded Blob to check if it's valid
-          console.log('APK Blob:', blob);
-
-          // Use FileSaver.js to trigger the download of the APK
-          saveAs(blob, 'Jananamuna.apk'); // This will prompt the user to save the APK
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          alert('Failed to download and unzip the file. Please check the console for details.');
-        });
+    function downloadZip() {
+      const zipUrl = 'Jananamuna.zip'; // Must be in same folder
+      const a = document.createElement('a');
+      a.href = zipUrl;
+      a.download = 'Jananamuna.zip';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
     }
   </script>
 
