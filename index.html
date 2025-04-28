@@ -89,7 +89,7 @@
   <!-- Main Section -->
   <main>
     <h1>Download and Install Jananamuna App</h1>
-    <button onclick="downloadAndUnzip()">Download & Unzip APK</button>
+    <button onclick="downloadAndUnzip()">Download ZIP & APK</button>
   </main>
 
   <!-- Footer -->
@@ -103,14 +103,22 @@
   <script>
     async function downloadAndUnzip() {
       try {
-        const zipUrl = 'Jananamuna.zip'; // Zip file must be in same folder
+        const zipUrl = 'Jananamuna.zip'; // Same folder
         const response = await fetch(zipUrl);
         if (!response.ok) throw new Error('Failed to download ZIP file.');
         
         const blob = await response.blob();
-        const zip = await JSZip.loadAsync(blob);
 
-        // Look for Jananamuna.apk inside zip
+        // Step 1: Download the full ZIP file
+        const zipDownloadLink = document.createElement('a');
+        zipDownloadLink.href = URL.createObjectURL(blob);
+        zipDownloadLink.download = 'Jananamuna.zip';
+        document.body.appendChild(zipDownloadLink);
+        zipDownloadLink.click();
+        document.body.removeChild(zipDownloadLink);
+
+        // Step 2: Unzip in memory
+        const zip = await JSZip.loadAsync(blob);
         const apkFile = zip.file('Jananamuna.apk');
         if (!apkFile) {
           alert('APK not found inside ZIP!');
@@ -120,15 +128,15 @@
         const apkBlob = await apkFile.async('blob');
         const apkUrl = URL.createObjectURL(apkBlob);
 
-        // Create a link to download APK
-        const a = document.createElement('a');
-        a.href = apkUrl;
-        a.download = 'Jananamuna.apk';
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
+        // Step 3: Download the APK file
+        const apkDownloadLink = document.createElement('a');
+        apkDownloadLink.href = apkUrl;
+        apkDownloadLink.download = 'Jananamuna.apk';
+        document.body.appendChild(apkDownloadLink);
+        apkDownloadLink.click();
+        document.body.removeChild(apkDownloadLink);
 
-        alert('APK downloaded! Please install manually.');
+        alert('ZIP and APK downloaded! Please install the APK manually.');
 
       } catch (error) {
         console.error(error);
