@@ -9,6 +9,13 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
+  <!-- SEO Meta -->
+  <meta name="description" content="Download the official Jananamuna School App for students. Learn anywhere, anytime." />
+  <meta property="og:title" content="Download Jananamuna App" />
+  <meta property="og:image" content="logo.png" />
+  <meta property="og:description" content="Jananamuna App helps students stay connected with their school, lessons, and assignments." />
+  <meta name="theme-color" content="#4CAF50" />
+
   <style>
     * {
       margin: 0;
@@ -55,7 +62,6 @@
       color: #444;
       margin-top: 10px;
     }
-
     .content-wrapper {
       display: flex;
       flex-direction: row;
@@ -65,11 +71,9 @@
       gap: 40px;
       margin-top: 30px;
     }
-
     .download-section {
       max-width: 300px;
     }
-
     button.download-btn {
       display: inline-block;
       padding: 14px 28px;
@@ -87,25 +91,21 @@
       background: #45a049;
       transform: scale(1.05);
     }
-
     ul.features {
       list-style: none;
       padding: 0;
       text-align: left;
       margin-top: 20px;
     }
-
     ul.features li {
       margin: 8px 0;
       font-size: 16px;
     }
-
     .screenshots {
       position: relative;
       width: 300px;
       height: 600px;
     }
-
     .screenshots img {
       position: absolute;
       top: 0;
@@ -117,12 +117,10 @@
       opacity: 0;
       transition: opacity 1s ease-in-out;
     }
-
     .screenshots img.active {
       opacity: 1;
       z-index: 2;
     }
-
     .contact {
       margin-top: 30px;
       font-size: 14px;
@@ -132,7 +130,6 @@
       color: #4CAF50;
       text-decoration: none;
     }
-
     footer {
       background: #4CAF50;
       color: white;
@@ -140,13 +137,11 @@
       padding: 12px 10px;
       font-size: 14px;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
     @media (max-width: 700px) {
       .content-wrapper {
         flex-direction: column;
@@ -167,7 +162,7 @@
 
   <!-- Navbar -->
   <nav>
-    <img src="logo.png" alt="Jananamuna Logo" />
+    <img src="logo.png" alt="Jananamuna School Logo" />
     Jananamuna App Download
   </nav>
 
@@ -181,11 +176,9 @@
     </p>
 
     <div class="content-wrapper">
-
       <!-- Download Section -->
       <div class="download-section">
         <button class="download-btn" onclick="confirmDownload()">Download ZIP & APK</button>
-
         <ul class="features">
           <li>✅ Learn anytime, anywhere</li>
           <li>✅ Simple installation and updates</li>
@@ -195,10 +188,9 @@
 
       <!-- Screenshot Slideshow -->
       <div class="screenshots">
-        <img src="screenshot1.jpg" alt="Screenshot 1" class="active" />
-        <img src="screenshot2.jpg" alt="Screenshot 2" />
+        <img src="1.jpg" alt="App Screenshot 1" class="active" />
+        <img src="2.jpg" alt="App Screenshot 2" />
       </div>
-
     </div>
 
     <!-- Install Guide -->
@@ -212,19 +204,15 @@
         <li>Follow on-screen steps to complete installation.</li>
       </ol>
     </section>
-
-    <!-- Contact -->
-    <div class="contact">
-      Need help? Contact us at
-      <a href="mailto:support@jananamuna.com">support@jananamuna.com</a>
-    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Jananamuna School |
-    All rights reserved
+    &copy; 2025 Jananamuna School | All rights reserved
   </footer>
+
+  <!-- Hidden Download Link (Fallback) -->
+  <a id="downloadLink" href="https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy" style="display:none" download></a>
 
   <!-- Scripts -->
   <script>
@@ -237,12 +225,14 @@
       screenshots[current].classList.add('active');
     }, 5000);
 
-    // Confirm before download
+    // Confirm download
     function confirmDownload() {
       const userConfirmed = confirm("Do you want to download the Jananamuna App ZIP file?");
       if (userConfirmed) {
-        window.open("https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy", "_blank");
-        alert("Thank you for downloading Jananamuna App!");
+        alert("Thank you for downloading the Jananamuna App!");
+        // Preferred: load in same tab
+        window.location.href = "https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy";
+        // Optional fallback: document.getElementById('downloadLink').click();
       }
     }
   </script>
