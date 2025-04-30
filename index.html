@@ -225,14 +225,11 @@
       screenshots[current].classList.add('active');
     }, 5000);
 
-    // Confirm download
+    // Confirm download (no "Thank you" alert)
     function confirmDownload() {
       const userConfirmed = confirm("Do you want to download the Jananamuna App ZIP file?");
       if (userConfirmed) {
-        alert("Thank you for downloading the Jananamuna App!");
-        // Preferred: load in same tab
         window.location.href = "https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy";
-        // Optional fallback: document.getElementById('downloadLink').click();
       }
     }
   </script>
