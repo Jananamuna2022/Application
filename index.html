@@ -1,9 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Download Jananamuna App</title>
+  <link rel="icon" type="image/png" href="favicon.png" />
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
 
   <style>
     * {
@@ -12,13 +16,13 @@
       box-sizing: border-box;
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Roboto', sans-serif;
       background: #f5f7fa;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      color: #333;
     }
-    /* Navbar */
     nav {
       background: #4CAF50;
       padding: 12px 20px;
@@ -29,22 +33,45 @@
       font-size: 20px;
       font-weight: bold;
     }
-    /* Main Content */
+    nav img {
+      height: 30px;
+      margin-right: 10px;
+    }
     main {
       flex: 1;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
       padding: 40px 20px;
       text-align: center;
     }
     h1 {
-      font-size: 26px;
-      margin-bottom: 20px;
-      color: #333;
+      font-size: 28px;
+      margin-bottom: 10px;
     }
-    button {
+    p.description {
+      max-width: 600px;
+      font-size: 17px;
+      color: #444;
+      margin-top: 10px;
+    }
+
+    .content-wrapper {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    .download-section {
+      max-width: 300px;
+    }
+
+    button.download-btn {
+      display: inline-block;
       padding: 14px 28px;
       font-size: 18px;
       background: #4CAF50;
@@ -53,13 +80,59 @@
       border-radius: 8px;
       cursor: pointer;
       transition: background 0.3s, transform 0.2s;
-      margin: 10px;
+      margin: 20px 0;
+      animation: pulse 2s infinite;
     }
-    button:hover {
+    button.download-btn:hover {
       background: #45a049;
       transform: scale(1.05);
     }
-    /* Footer */
+
+    ul.features {
+      list-style: none;
+      padding: 0;
+      text-align: left;
+      margin-top: 20px;
+    }
+
+    ul.features li {
+      margin: 8px 0;
+      font-size: 16px;
+    }
+
+    .screenshots {
+      position: relative;
+      width: 300px;
+      height: 600px;
+    }
+
+    .screenshots img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .screenshots img.active {
+      opacity: 1;
+      z-index: 2;
+    }
+
+    .contact {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+    .contact a {
+      color: #4CAF50;
+      text-decoration: none;
+    }
+
     footer {
       background: #4CAF50;
       color: white;
@@ -67,11 +140,22 @@
       padding: 12px 10px;
       font-size: 14px;
     }
-    @media (max-width: 500px) {
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 700px) {
+      .content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+      }
       h1 {
         font-size: 22px;
       }
-      button {
+      button.download-btn {
         font-size: 16px;
         padding: 12px 24px;
       }
@@ -83,64 +167,82 @@
 
   <!-- Navbar -->
   <nav>
+    <img src="logo.png" alt="Jananamuna Logo" />
     Jananamuna App Download
   </nav>
 
   <!-- Main Section -->
   <main>
     <h1>Download and Install Jananamuna App</h1>
-    <button onclick="downloadAndUnzip()">Download ZIP & APK</button>
+    <p class="description">
+      <strong>Jananamuna App</strong> is the official learning companion for students of Jananamuna School.
+      It helps you stay updated with lessons, assignments, and school notices — all in one place.
+      Whether you're at home or on the go, learning continues without interruption.
+    </p>
+
+    <div class="content-wrapper">
+
+      <!-- Download Section -->
+      <div class="download-section">
+        <button class="download-btn" onclick="confirmDownload()">Download ZIP & APK</button>
+
+        <ul class="features">
+          <li>✅ Learn anytime, anywhere</li>
+          <li>✅ Simple installation and updates</li>
+          <li>✅ Trusted by Jananamuna School</li>
+        </ul>
+      </div>
+
+      <!-- Screenshot Slideshow -->
+      <div class="screenshots">
+        <img src="screenshot1.jpg" alt="Screenshot 1" class="active" />
+        <img src="screenshot2.jpg" alt="Screenshot 2" />
+      </div>
+
+    </div>
+
+    <!-- Install Guide -->
+    <section style="max-width: 600px; margin: 40px auto; text-align: left;">
+      <h2 style="color: #4CAF50;">How to Install the App</h2>
+      <ol style="line-height: 1.8;">
+        <li>Click the green download button above to download the ZIP file.</li>
+        <li>Extract the ZIP file to access <strong>Jananamuna.apk</strong>.</li>
+        <li>On your Android device, tap the APK file.</li>
+        <li>If asked, allow installation from unknown sources.</li>
+        <li>Follow on-screen steps to complete installation.</li>
+      </ol>
+    </section>
+
+    <!-- Contact -->
+    <div class="contact">
+      Need help? Contact us at
+      <a href="mailto:support@jananamuna.com">support@jananamuna.com</a>
+    </div>
   </main>
 
   <!-- Footer -->
   <footer>
-    &copy; 2025 Jananamuna School | All rights reserved
+    &copy; 2025 Jananamuna School |
+    All rights reserved
   </footer>
 
-  <!-- JSZip Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
+  <!-- Scripts -->
   <script>
-    async function downloadAndUnzip() {
-      try {
-        const zipUrl = 'Jananamuna.zip'; // Same folder
-        const response = await fetch(zipUrl);
-        if (!response.ok) throw new Error('Failed to download ZIP file.');
-        
-        const blob = await response.blob();
+    // Screenshot slideshow
+    const screenshots = document.querySelectorAll('.screenshots img');
+    let current = 0;
+    setInterval(() => {
+      screenshots[current].classList.remove('active');
+      current = (current + 1) % screenshots.length;
+      screenshots[current].classList.add('active');
+    }, 5000);
 
-        // Step 1: Download the full ZIP file
-        const zipDownloadLink = document.createElement('a');
-        zipDownloadLink.href = URL.createObjectURL(blob);
-        zipDownloadLink.download = 'Jananamuna.zip';
-        document.body.appendChild(zipDownloadLink);
-        zipDownloadLink.click();
-        document.body.removeChild(zipDownloadLink);
-
-        // Step 2: Unzip in memory
-        const zip = await JSZip.loadAsync(blob);
-        const apkFile = zip.file('Jananamuna.apk');
-        if (!apkFile) {
-          alert('APK not found inside ZIP!');
-          return;
-        }
-
-        const apkBlob = await apkFile.async('blob');
-        const apkUrl = URL.createObjectURL(apkBlob);
-
-        // Step 3: Download the APK file
-        const apkDownloadLink = document.createElement('a');
-        apkDownloadLink.href = apkUrl;
-        apkDownloadLink.download = 'Jananamuna.apk';
-        document.body.appendChild(apkDownloadLink);
-        apkDownloadLink.click();
-        document.body.removeChild(apkDownloadLink);
-
-        alert('ZIP and APK downloaded! Please install the APK manually.');
-
-      } catch (error) {
-        console.error(error);
-        alert('Error occurred during download or unzip.');
+    // Confirm before download
+    function confirmDownload() {
+      const userConfirmed = confirm("Do you want to download the Jananamuna App ZIP file?");
+      if (userConfirmed) {
+        window.open("https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy", "_blank");
+        alert("Thank you for downloading Jananamuna App!");
       }
     }
   </script>
