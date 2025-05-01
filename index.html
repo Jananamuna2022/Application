@@ -156,7 +156,7 @@
     <!-- Progress Bar -->
     <div id="progressContainer">
       <progress id="progressBar" value="0" max="100"></progress>
-      <p id="progressText">Downloading... 0%</p>
+      <p id="progressText">Download starts in: 10 sec</p>
     </div>
 
     <button id="downloadButton" onclick="confirmDownload()" role="button" aria-label="Download Jananamuna APK">
@@ -176,16 +176,18 @@
       const popup = document.getElementById('popup');
 
       progressContainer.style.display = 'block';
-      let percent = 0;
-      const duration = 10000; // total time in ms
-      const interval = 100;  // update every 100ms
-      const increment = 100 / (duration / interval);
+      let countdown = 10; // seconds
 
       const timer = setInterval(() => {
-        percent += increment;
-        if (percent >= 100) {
-          percent = 100;
+        countdown--;
+        const percent = ((10 - countdown) / 10) * 100;
+        progressBar.value = percent;
+        progressText.textContent = `Download starts in: ${countdown} sec`;
+
+        if (countdown <= 0) {
           clearInterval(timer);
+          progressBar.value = 100;
+          progressText.textContent = "Starting download...";
 
           // Start the download
           window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
@@ -194,10 +196,7 @@
           popup.classList.add('show');
           setTimeout(() => popup.classList.remove('show'), 12000);
         }
-
-        progressBar.value = percent;
-        progressText.textContent = `Downloading... ${Math.round(percent)}%`;
-      }, interval);
+      }, 1000);
     }
   </script>
 
