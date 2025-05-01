@@ -9,6 +9,7 @@
       font-family: Arial, sans-serif;
       line-height: 1.6;
       padding: 20px;
+      margin: 0;
     }
     h2 {
       color: #4CAF50;
@@ -30,10 +31,47 @@
       margin-top: 40px;
       font-size: 14px;
       color: #555;
+      text-align: center;
+    }
+    /* Navbar styles */
+    nav {
+      background-color: #333;
+      padding: 10px;
+    }
+    nav ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: space-around;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      padding: 10px 20px;
+      display: inline-block;
+    }
+    nav ul li a:hover {
+      background-color: #575757;
+    }
+    /* Logo style */
+    .logo {
+      max-height: 50px;
+      max-width: 150px;
+      display: inline-block;
+      margin-right: 15px;
     }
   </style>
 </head>
 <body>
+
+  <!-- Navbar with Logo -->
+  <nav>
+    <img src="logo.png" alt="Jananamuna Logo" class="logo">
+  </nav>
 
   <h2>How to Install the App</h2>
   <ol>
@@ -52,13 +90,8 @@
 
   <script>
     function confirmDownload() {
-      const a = document.createElement('a');
-      a.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-      document.body.appendChild(a);
-      a.click();
-      document.body.removeChild(a);
+      // Trigger download without opening a new tab
+      window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
     }
   </script>
 
