@@ -34,6 +34,7 @@
       padding: 10px 0;
       text-align: center;
     }
+    /* Header Section */
     #header {
       display: flex;
       align-items: center;
@@ -51,22 +52,28 @@
       margin: 0;
       font-size: 24px;
     }
-    /* Navigation bar styles */
+    /* Navigation Bar */
     nav {
       background-color: #333;
-      overflow: hidden;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    nav a {
-      float: left;
-      display: block;
+    /* Logo in navigation bar */
+    nav #navLogo {
+      display: flex;
+      align-items: center;
+    }
+    nav #navLogo img {
+      width: 40px; /* Adjust size of logo in nav */
+      height: auto;
+      margin-right: 10px;
+    }
+    nav #navLogo h1 {
       color: white;
-      text-align: center;
-      padding: 14px 20px;
-      text-decoration: none;
-    }
-    nav a:hover {
-      background-color: #ddd;
-      color: black;
+      font-size: 20px;
+      margin: 0;
     }
     #thankYouMessage {
       display: none;
@@ -84,11 +91,13 @@
     <h1>Jananamuna School</h1>
   </header>
 
-  <!-- Navigation Bar -->
+  <!-- Navigation Bar with Logo Only -->
   <nav>
-    <a href="#">Home</a>
-    <a href="#">About</a>
-    <a href="#">Contact</a>
+    <!-- Logo inside navigation bar -->
+    <div id="navLogo">
+      <img src="logo.png" alt="Logo">
+      <h1>Jananamuna</h1>
+    </div>
   </nav>
 
   <h2>How to Install the App</h2>
