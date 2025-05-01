@@ -49,7 +49,6 @@
       text-align: center;
     }
 
-    /* Navbar styles */
     nav {
       background-color: #4CAF50;
       padding: 10px 0;
@@ -62,7 +61,6 @@
       margin-bottom: 10px;
     }
 
-    /* Modern popup notification */
     #popup {
       display: none;
       position: fixed;
@@ -85,7 +83,6 @@
       opacity: 1;
     }
 
-    /* Responsive design */
     @media screen and (max-width: 768px) {
       h2 {
         font-size: 24px;
@@ -114,17 +111,33 @@
       text-align: center;
       color: #333;
     }
+
+    /* Progress Bar */
+    #progressContainer {
+      display: none;
+      text-align: center;
+      margin: 20px;
+    }
+
+    #progressBar {
+      width: 80%;
+      height: 20px;
+    }
+
+    #progressText {
+      font-size: 16px;
+      color: #555;
+      margin-top: 8px;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar with Logo -->
   <nav>
     <img src="logo.png" alt="Jananamuna School Logo">
   </nav>
 
-  <!-- Popup message -->
-  <div id="popup">Thank you for downloading this app!</div>
+  <div id="popup" aria-live="assertive">Thank you for downloading this app!</div>
 
   <main>
     <section class="description">
@@ -140,6 +153,12 @@
       <li>Follow on-screen steps to complete installation.</li>
     </ol>
 
+    <!-- Progress Bar -->
+    <div id="progressContainer">
+      <progress id="progressBar" value="0" max="100"></progress>
+      <p id="progressText">Downloading... 0%</p>
+    </div>
+
     <button id="downloadButton" onclick="confirmDownload()" role="button" aria-label="Download Jananamuna APK">
       Download Jananamuna.apk
     </button>
@@ -151,17 +170,34 @@
 
   <script>
     function confirmDownload() {
-      // Trigger download immediately
-      window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
+      const progressContainer = document.getElementById('progressContainer');
+      const progressBar = document.getElementById('progressBar');
+      const progressText = document.getElementById('progressText');
+      const popup = document.getElementById('popup');
 
-      // Show popup after 5 seconds
-      setTimeout(() => {
-        const popup = document.getElementById('popup');
-        popup.classList.add('show');
-        setTimeout(() => {
-          popup.classList.remove('show');
-        }, 5000);
-      }, 7000);
+      progressContainer.style.display = 'block';
+      let percent = 0;
+      const duration = 7000; // total time in ms
+      const interval = 100;  // update every 100ms
+      const increment = 100 / (duration / interval);
+
+      const timer = setInterval(() => {
+        percent += increment;
+        if (percent >= 100) {
+          percent = 100;
+          clearInterval(timer);
+
+          // Start the download
+          window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
+
+          // Show thank you popup
+          popup.classList.add('show');
+          setTimeout(() => popup.classList.remove('show'), 5000);
+        }
+
+        progressBar.value = percent;
+        progressText.textContent = `Downloading... ${Math.round(percent)}%`;
+      }, interval);
     }
   </script>
 
