@@ -12,6 +12,7 @@
       line-height: 1.6;
       margin: 0;
       padding: 0;
+      background-color: #f9f9f9;
     }
 
     h2 {
@@ -34,6 +35,11 @@
       font-size: 16px;
       display: block;
       margin: 20px auto;
+      transition: background-color 0.3s ease;
+    }
+
+    #downloadButton:hover {
+      background-color: #45a049;
     }
 
     footer {
@@ -56,31 +62,27 @@
       margin-bottom: 10px;
     }
 
-    /* Popup notification */
+    /* Modern popup notification */
     #popup {
       display: none;
       position: fixed;
-      top: 20px;
+      bottom: 30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #4CAF50;
+      background-color: #323232;
       color: white;
-      padding: 15px 25px;
+      padding: 14px 24px;
       border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
       z-index: 1000;
-      font-weight: bold;
-      animation: fadein 0.5s, fadeout 0.5s 2.5s;
+      font-size: 15px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
     }
 
-    @keyframes fadein {
-      from { opacity: 0; top: 0; }
-      to { opacity: 1; top: 20px; }
-    }
-
-    @keyframes fadeout {
-      from { opacity: 1; top: 20px; }
-      to { opacity: 0; top: 0; }
+    #popup.show {
+      display: block;
+      opacity: 1;
     }
 
     /* Responsive design */
@@ -149,17 +151,17 @@
 
   <script>
     function confirmDownload() {
-      // Show popup
-      const popup = document.getElementById('popup');
-      popup.style.display = 'block';
-
-      // Hide after 3 seconds
-      setTimeout(() => {
-        popup.style.display = 'none';
-      }, 3000);
-
-      // Start download
+      // Trigger download immediately
       window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
+
+      // Show popup after 5 seconds
+      setTimeout(() => {
+        const popup = document.getElementById('popup');
+        popup.classList.add('show');
+        setTimeout(() => {
+          popup.classList.remove('show');
+        }, 3000);
+      }, 5000);
     }
   </script>
 
