@@ -8,8 +8,7 @@
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      padding: 0;
-      margin: 0;
+      padding: 20px;
     }
     h2 {
       color: #4CAF50;
@@ -31,74 +30,10 @@
       margin-top: 40px;
       font-size: 14px;
       color: #555;
-      padding: 10px 0;
-      text-align: center;
-    }
-    /* Header Section */
-    #header {
-      display: flex;
-      align-items: center;
-      margin-bottom: 30px;
-      padding: 10px;
-      background-color: #4CAF50;
-      color: white;
-    }
-    #logo {
-      width: 50px; /* Adjust logo size */
-      height: auto;
-      margin-right: 15px;
-    }
-    #header h1 {
-      margin: 0;
-      font-size: 24px;
-    }
-    /* Navigation Bar */
-    nav {
-      background-color: #333;
-      padding: 10px 20px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    /* Logo in navigation bar */
-    nav #navLogo {
-      display: flex;
-      align-items: center;
-    }
-    nav #navLogo img {
-      width: 40px; /* Adjust size of logo in nav */
-      height: auto;
-      margin-right: 10px;
-    }
-    nav #navLogo h1 {
-      color: white;
-      font-size: 20px;
-      margin: 0;
-    }
-    #thankYouMessage {
-      display: none;
-      margin-top: 20px;
-      font-size: 18px;
-      color: #4CAF50;
     }
   </style>
 </head>
 <body>
-
-  <!-- Header with Logo and Title -->
-  <header id="header">
-    <img id="logo" src="logo.png" alt="Jananamuna Logo">
-    <h1>Jananamuna School</h1>
-  </header>
-
-  <!-- Navigation Bar with Logo Only -->
-  <nav>
-    <!-- Logo inside navigation bar -->
-    <div id="navLogo">
-      <img src="logo.png" alt="Logo">
-      <h1>Jananamuna</h1>
-    </div>
-  </nav>
 
   <h2>How to Install the App</h2>
   <ol>
@@ -110,9 +45,6 @@
   </ol>
 
   <button id="downloadButton" onclick="confirmDownload()">Download Jananamuna.apk</button>
-
-  <!-- Thank You message -->
-  <div id="thankYouMessage">Thank you for downloading the Jananamuna app!</div>
 
   <footer>
     &copy; 2025 Jananamuna School | All rights reserved
@@ -127,9 +59,6 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-
-      // Show "Thank You" message
-      document.getElementById('thankYouMessage').style.display = 'block';
     }
   </script>
 
