@@ -31,6 +31,12 @@
       font-size: 14px;
       color: #555;
     }
+    #thankYouMessage {
+      display: none;
+      margin-top: 20px;
+      font-size: 18px;
+      color: #4CAF50;
+    }
   </style>
 </head>
 <body>
@@ -46,6 +52,9 @@
 
   <button id="downloadButton" onclick="confirmDownload()">Download Jananamuna.apk</button>
 
+  <!-- Thank You message -->
+  <div id="thankYouMessage">Thank you for downloading the Jananamuna app!</div>
+
   <footer>
     &copy; 2025 Jananamuna School | All rights reserved
   </footer>
@@ -59,6 +68,9 @@
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
+
+      // Show "Thank You" message
+      document.getElementById('thankYouMessage').style.display = 'block';
     }
   </script>
 
