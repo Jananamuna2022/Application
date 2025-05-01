@@ -1,226 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Download Jananamuna App</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-
-  <!-- SEO Meta -->
-  <meta name="description" content="Download the official Jananamuna School App for students. Learn anywhere, anytime." />
-  <meta property="og:title" content="Download Jananamuna App" />
-  <meta property="og:image" content="logo.png" />
-  <meta property="og:description" content="Jananamuna App helps students stay connected with their school, lessons, and assignments." />
-  <meta name="theme-color" content="#4CAF50" />
-
+  <meta charset="UTF-8">
+  <title>Download Page</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      color: #333;
-    }
-    nav {
-      background: #4CAF50;
-      padding: 12px 20px;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      font-weight: bold;
-    }
-    nav img {
-      height: 30px;
-      margin-right: 10px;
-    }
-    main {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    p.description {
-      max-width: 600px;
-      font-size: 17px;
-      color: #444;
-      margin-top: 10px;
-    }
-    .content-wrapper {
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 40px;
-      margin-top: 30px;
-    }
-    .download-section {
-      max-width: 300px;
-    }
-    button.download-btn {
-      display: inline-block;
-      padding: 14px 28px;
-      font-size: 18px;
-      background: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
-      margin: 20px 0;
-      animation: pulse 2s infinite;
-    }
-    button.download-btn:hover {
-      background: #45a049;
-      transform: scale(1.05);
-    }
-    ul.features {
-      list-style: none;
-      padding: 0;
-      text-align: left;
-      margin-top: 20px;
-    }
-    ul.features li {
-      margin: 8px 0;
-      font-size: 16px;
-    }
-    .screenshots {
-      position: relative;
-      width: 300px;
-      height: 600px;
-    }
-    .screenshots img {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      opacity: 0;
-      transition: opacity 1s ease-in-out;
-    }
-    .screenshots img.active {
-      opacity: 1;
-      z-index: 2;
-    }
-    .contact {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #555;
-    }
-    .contact a {
-      color: #4CAF50;
-      text-decoration: none;
-    }
-    footer {
-      background: #4CAF50;
-      color: white;
-      text-align: center;
-      padding: 12px 10px;
-      font-size: 14px;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    @media (max-width: 700px) {
-      .content-wrapper {
-        flex-direction: column;
-        gap: 20px;
-      }
-      h1 {
-        font-size: 22px;
-      }
-      button.download-btn {
-        font-size: 16px;
-        padding: 12px 24px;
-      }
-    }
+    /* Optional: style for screenshot slideshow */
+    .screenshots img { display: none; }
+    .screenshots img.active { display: block; }
   </style>
 </head>
-
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <img src="logo.png" alt="Jananamuna School Logo" />
-    Jananamuna App Download
-  </nav>
+  <!-- Hidden Download Link -->
+  <a id="downloadLink" href="https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy" style="display:none;" download></a>
 
-  <!-- Main Section -->
-  <main>
-    <h1>Download and Install Jananamuna App</h1>
-    <p class="description">
-      <strong>Jananamuna App</strong> is the official learning companion for students of Jananamuna School.
-      It helps you stay updated with lessons, assignments, and school notices — all in one place.
-      Whether you're at home or on the go, learning continues without interruption.
-    </p>
-
-    <div class="content-wrapper">
-      <!-- Download Section -->
-      <div class="download-section">
-        <button class="download-btn" onclick="confirmDownload()">Download APK</button>
-        <ul class="features">
-          <li>✅ Learn anytime, anywhere</li>
-          <li>✅ Simple installation and updates</li>
-          <li>✅ Trusted by Jananamuna School</li>
-        </ul>
-      </div>
-
-      <!-- Screenshot Slideshow -->
-      <div class="screenshots">
-        <img src="1.jpg" alt="App Screenshot 1" class="active" />
-        <img src="2.jpg" alt="App Screenshot 2" />
-      </div>
-    </div>
-
-    <!-- Install Guide -->
-    <section style="max-width: 600px; margin: 40px auto; text-align: left;">
-    </br>
-        </br>
-      <h2 style="color: #4CAF50;">How to Install the App</h2>
-      <ol style="line-height: 1.8;">
-        <li>Click the green download button above to start download.</li>
-        <li>After open download page download <strong>Jananamuna.apk</strong>.</li>
-        <li>On your Android device, tap install app</li>
-        <li>If asked, allow installation from unknown sources.</li>
-        <li>Follow on-screen steps to complete installation.</li>
-      </ol>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    &copy; 2025 Jananamuna School | All rights reserved
-  </footer>
-
-  <!-- Hidden Download Link (Fallback) -->
-  <a id="downloadLink" href="https://u.pcloud.link/publink/show?code=XZlB5b5ZurrkvvDGeM5PFGUNV8l6GYvb2nQy" style="display:none" download></a>
+  <!-- Screenshot Slideshow -->
+  <div class="screenshots">
+    <img src="img1.jpg" class="active" />
+    <img src="img2.jpg" />
+    <img src="img3.jpg" />
+  </div>
 
   <!-- Scripts -->
   <script>
     // Screenshot slideshow
     const screenshots = document.querySelectorAll('.screenshots img');
     let current = 0;
+
     setInterval(() => {
       screenshots[current].classList.remove('active');
       current = (current + 1) % screenshots.length;
@@ -229,7 +35,7 @@
 
     // Direct download (no confirmation)
     function confirmDownload() {
-      window.location.href = "https://https://madhyabindu-my.sharepoint.com/:u:/g/personal/dinesh_ranamagar_madhyabindu_edu_np/ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A?e=i6oLd8";
+      window.location.href = "https://madhyabindu-my.sharepoint.com/:u:/g/personal/dinesh_ranamagar_madhyabindu_edu_np/ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A?e=i6oLd8";
     }
   </script>
 
