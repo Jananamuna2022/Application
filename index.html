@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Jananamuna App Download</title>
+  <meta name="description" content="Download the official Jananamuna School App with step-by-step installation guide.">
+  <link rel="icon" href="logo.png" type="image/png" />
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -11,14 +13,17 @@
       margin: 0;
       padding: 0;
     }
+
     h2 {
       color: #4CAF50;
       text-align: center;
     }
+
     ol {
       line-height: 1.8;
       padding-left: 20px;
     }
+
     #downloadButton {
       background-color: #4CAF50;
       color: white;
@@ -30,41 +35,25 @@
       display: block;
       margin: 20px auto;
     }
+
     footer {
       margin-top: 40px;
       font-size: 14px;
       color: #555;
       text-align: center;
     }
+
     /* Navbar styles */
     nav {
-      background-color: #4CAF50; /* Same as button color */
+      background-color: #4CAF50;
       padding: 10px 0;
       text-align: center;
     }
+
     nav img {
       max-height: 50px;
       max-width: 150px;
       margin-bottom: 10px;
-    }
-    nav ul {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-    }
-    nav ul li {
-      display: inline;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      padding: 10px 20px;
-      display: inline-block;
-    }
-    nav ul li a:hover {
-      background-color: #575757;
     }
 
     /* Responsive design */
@@ -84,16 +73,18 @@
       h2 {
         font-size: 20px;
       }
-      nav ul {
-        flex-direction: column;
-        align-items: center;
-      }
-      nav ul li {
-        margin-bottom: 10px;
-      }
       #downloadButton {
         width: 90%;
       }
+    }
+
+    /* Optional description section */
+    .description {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 0 20px;
+      text-align: center;
+      color: #333;
     }
   </style>
 </head>
@@ -101,19 +92,27 @@
 
   <!-- Navbar with Logo -->
   <nav>
-    <img src="logo.png" alt="Jananamuna Logo">
+    <img src="logo.png" alt="Jananamuna School Logo">
   </nav>
 
-  <h2>How to Install the App</h2>
-  <ol>
-    <li>Click the green download button below to start download.</li>
-    <li>Download <strong>Jananamuna.apk</strong> from the opened page.</li>
-    <li>On your Android device, tap the downloaded file to install.</li>
-    <li>If asked, allow installation from unknown sources.</li>
-    <li>Follow on-screen steps to complete installation.</li>
-  </ol>
+  <main>
+    <section class="description">
+      <p>The Jananamuna App helps students and teachers stay updated with the latest school notices, assignments, and digital resources. Download the app and experience smarter school communication.</p>
+    </section>
 
-  <button id="downloadButton" onclick="confirmDownload()">Download Jananamuna.apk</button>
+    <h2>How to Install the App</h2>
+    <ol>
+      <li>Click the green download button below to start download.</li>
+      <li>Download <strong>Jananamuna.apk</strong> from the opened page.</li>
+      <li>On your Android device, tap the downloaded file to install.</li>
+      <li>If asked, allow installation from unknown sources.</li>
+      <li>Follow on-screen steps to complete installation.</li>
+    </ol>
+
+    <button id="downloadButton" onclick="confirmDownload()" role="button" aria-label="Download Jananamuna APK">
+      Download Jananamuna.apk
+    </button>
+  </main>
 
   <footer>
     &copy; 2025 Jananamuna School | All rights reserved
@@ -121,7 +120,6 @@
 
   <script>
     function confirmDownload() {
-      // Trigger download without opening a new tab
       window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
     }
   </script>
