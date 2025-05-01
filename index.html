@@ -8,14 +8,16 @@
     body {
       font-family: Arial, sans-serif;
       line-height: 1.6;
-      padding: 20px;
       margin: 0;
+      padding: 0;
     }
     h2 {
       color: #4CAF50;
+      text-align: center;
     }
     ol {
       line-height: 1.8;
+      padding-left: 20px;
     }
     #downloadButton {
       background-color: #4CAF50;
@@ -25,7 +27,8 @@
       border-radius: 5px;
       cursor: pointer;
       font-size: 16px;
-      margin-top: 15px;
+      display: block;
+      margin: 20px auto;
     }
     footer {
       margin-top: 40px;
@@ -35,15 +38,21 @@
     }
     /* Navbar styles */
     nav {
-      background-color: #333;
-      padding: 10px;
+      background-color: #4CAF50; /* Same as button color */
+      padding: 10px 0;
+      text-align: center;
+    }
+    nav img {
+      max-height: 50px;
+      max-width: 150px;
+      margin-bottom: 10px;
     }
     nav ul {
       list-style-type: none;
       margin: 0;
       padding: 0;
       display: flex;
-      justify-content: space-around;
+      justify-content: center;
     }
     nav ul li {
       display: inline;
@@ -57,12 +66,34 @@
     nav ul li a:hover {
       background-color: #575757;
     }
-    /* Logo style */
-    .logo {
-      max-height: 50px;
-      max-width: 150px;
-      display: inline-block;
-      margin-right: 15px;
+
+    /* Responsive design */
+    @media screen and (max-width: 768px) {
+      h2 {
+        font-size: 24px;
+      }
+      ol {
+        padding-left: 10px;
+      }
+      #downloadButton {
+        width: 80%;
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      h2 {
+        font-size: 20px;
+      }
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      #downloadButton {
+        width: 90%;
+      }
     }
   </style>
 </head>
@@ -70,7 +101,12 @@
 
   <!-- Navbar with Logo -->
   <nav>
-    <img src="logo.png" alt="Jananamuna Logo" class="logo">
+    <img src="logo.png" alt="Jananamuna Logo">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
   </nav>
 
   <h2>How to Install the App</h2>
