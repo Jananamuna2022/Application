@@ -177,7 +177,7 @@
 
       progressContainer.style.display = 'block';
       let percent = 0;
-      const duration = 7000; // total time in ms
+      const duration = 10000; // total time in ms
       const interval = 100;  // update every 100ms
       const increment = 100 / (duration / interval);
 
@@ -192,7 +192,7 @@
 
           // Show thank you popup
           popup.classList.add('show');
-          setTimeout(() => popup.classList.remove('show'), 5000);
+          setTimeout(() => popup.classList.remove('show'), 12000);
         }
 
         progressBar.value = percent;
