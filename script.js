@@ -24,7 +24,7 @@ function confirmDownload() {
   }, 1000);
 }
 
-// Image slideshow
+// Image switch every 5 sec
 const imageEl = document.getElementById('appImage');
 const images = ['1.jpg', '2.jpg'];
 let current = 0;
