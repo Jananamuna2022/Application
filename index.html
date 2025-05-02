@@ -7,59 +7,128 @@
   <meta name="description" content="Download the official Jananamuna School App with step-by-step installation guide.">
   <link rel="icon" href="logo.png" type="image/png" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
+    :root {
+      --primary-color: #2e7d32;
+      --secondary-color: #f4f4f4;
+      --text-color: #333;
+      --accent-color: #256528;
+      --white: #ffffff;
+    }
+
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f9f9f9;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--secondary-color);
+      color: var(--text-color);
+      line-height: 1.6;
+    }
+
+    nav, footer {
+      background-color: var(--primary-color);
+      text-align: center;
+      padding: 15px;
+    }
+
+    nav img {
+      max-width: 160px;
+      height: auto;
+    }
+
+    main {
+      padding: 30px 20px;
+      max-width: 900px;
+      margin: 20px auto;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .description {
+      text-align: center;
+      font-size: 18px;
+      color: #555;
+      margin-bottom: 30px;
     }
 
     h2 {
-      color: #4CAF50;
+      color: var(--primary-color);
       text-align: center;
+      margin-bottom: 20px;
     }
 
     ol {
-      line-height: 1.8;
       padding-left: 20px;
+      margin-bottom: 30px;
+      color: #444;
+    }
+
+    ol li {
+      margin-bottom: 10px;
     }
 
     #downloadButton {
-      background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
+      background-color: var(--primary-color);
+      color: var(--white);
+      padding: 14px 28px;
+      font-size: 18px;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
       display: block;
-      margin: 20px auto;
+      margin: 0 auto 25px;
       transition: background-color 0.3s ease;
     }
 
     #downloadButton:hover {
-      background-color: #45a049;
+      background-color: var(--accent-color);
+    }
+
+    #progressContainer {
+      display: none;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    #progressBar {
+      width: 80%;
+      height: 18px;
+      border-radius: 8px;
+    }
+
+    #progressText {
+      font-size: 16px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    #appImage {
+      display: block;
+      width: 60%;
+      max-width: 100%;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     footer {
-      background-color: #4CAF50;
-      margin-top: 40px;
+      color: var(--white);
       font-size: 14px;
-      color: white;
-      text-align: center;
+      padding-top: 10px;
     }
 
-    nav {
-      background-color: #4CAF50;
-      padding: 10px 0;
-      text-align: center;
+    footer a {
+      color: #c8e6c9;
+      text-decoration: none;
+      margin: 0 10px;
     }
 
-    nav img {
-      max-height: 50px;
-      max-width: 150px;
-      margin-bottom: 10px;
+    footer a:hover {
+      text-decoration: underline;
     }
 
     #popup {
@@ -84,53 +153,21 @@
       opacity: 1;
     }
 
-    .description {
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 0 20px;
-      text-align: center;
-      color: #333;
-    }
-
-    /* Progress Bar */
-    #progressContainer {
-      display: none;
-      text-align: center;
-      margin: 20px;
-    }
-
-    #progressBar {
-      width: 80%;
-      height: 20px;
-    }
-
-    #progressText {
-      font-size: 16px;
-      color: #555;
-      margin-top: 8px;
-    }
-
-    #appImage {
-      display: block;
-      width: 60%;
-      max-width: 100%;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
     @media screen and (max-width: 768px) {
       h2 {
-        font-size: 24px;
+        font-size: 22px;
       }
-      ol {
-        padding-left: 10px;
+
+      .description {
+        font-size: 16px;
       }
+
       #downloadButton {
-        width: 80%;
+        width: 90%;
       }
+
       #appImage {
-        width: 80%;
+        width: 90%;
       }
     }
 
@@ -138,11 +175,13 @@
       h2 {
         font-size: 20px;
       }
-      #downloadButton {
-        width: 90%;
+
+      ol {
+        font-size: 15px;
       }
-      #appImage {
-        width: 90%;
+
+      #progressText {
+        font-size: 14px;
       }
     }
   </style>
@@ -162,7 +201,7 @@
 
     <h2>How to Install the App</h2>
     <ol>
-      <li>Click the green download button below to start download.</li>
+      <li>Click the green download button below to start the download.</li>
       <li>Download <strong>Jananamuna.apk</strong> from the opened page.</li>
       <li>On your Android device, tap the downloaded file to install.</li>
       <li>If asked, allow installation from unknown sources.</li>
@@ -178,18 +217,15 @@
       Download Jananamuna.apk
     </button>
 
-    <!-- Rotating Image -->
-    <img id="appImage" src="1.jpg" alt="App Screenshot">
+    <img id="appImage" src="1.jpg" alt="App Preview">
   </main>
 
   <footer>
-    <div style="padding: 20px;">
-      <p>&copy; 2025 Jananamuna School | All rights reserved</p>
-      <p>
-        <a href="mailto:support@jananamuna.edu" style="color: white; text-decoration: underline;">Contact Support</a> |
-        <a href="privacy.html" style="color: white; text-decoration: underline;">Privacy Policy</a>
-      </p>
-    </div>
+    <p>&copy; 2025 Jananamuna School | All rights reserved</p>
+    <p>
+      <a href="mailto:support@jananamuna.edu">Contact Support</a> |
+      <a href="privacy.html">Privacy Policy</a>
+    </p>
   </footer>
 
   <script>
@@ -219,14 +255,13 @@
       }, 1000);
     }
 
-    // Image Rotator
+    // Image carousel logic
     const images = ["1.jpg", "2.jpg"];
-    let index = 0;
-    const appImage = document.getElementById("appImage");
+    let currentIndex = 0;
 
     setInterval(() => {
-      index = (index + 1) % images.length;
-      appImage.src = images[index];
+      currentIndex = (currentIndex + 1) % images.length;
+      document.getElementById("appImage").src = images[currentIndex];
     }, 5000);
   </script>
 
