@@ -1,0 +1,211 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f4f8;
+  color: #333;
+  line-height: 1.6;
+}
+
+nav {
+  background-color: #2e7d32;
+  padding: 6px 0;
+  text-align: center;
+}
+
+nav img {
+  max-width: 90px;
+  height: 90px;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h2 {
+  color: #2e7d32;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.section-title {
+  text-align: center;
+  color: #2e7d32;
+  margin-top: 30px;
+}
+
+.description {
+  text-align: center;
+  margin: 20px auto;
+  padding: 0 15px;
+  font-size: 18px;
+  color: #444;
+}
+
+ol {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+
+ol li {
+  margin-bottom: 10px;
+}
+
+#downloadButton {
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto;
+  transition: background-color 0.3s ease;
+}
+
+#downloadButton:hover {
+  background-color: #256728;
+}
+
+#popup {
+  display: none;
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 14px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+  z-index: 1000;
+  font-size: 15px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+#popup.show {
+  display: block;
+  opacity: 1;
+}
+
+#progressContainer {
+  display: none;
+  text-align: center;
+  margin: 20px;
+}
+
+#progressBar {
+  width: 80%;
+  height: 20px;
+}
+
+#progressText {
+  margin-top: 8px;
+  color: #555;
+  font-size: 16px;
+}
+
+.screenshot-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.screenshot-container img {
+  width: 60%;
+  max-width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: opacity 0.5s ease;
+}
+
+footer {
+  background-color: #2e7d32;
+  color: #eee;
+  padding: 20px;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+.feature-list, .changelog-list {
+  list-style: disc;
+  padding-left: 40px;
+  color: #444;
+  margin-top: 10px;
+}
+
+.changelog-list {
+  list-style: square;
+}
+
+.testimonials {
+  background-color: #e8f5e9;
+  padding: 20px;
+  margin-top: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.testimonials h3 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.testimonials blockquote {
+  font-style: italic;
+  color: #444;
+  margin: 10px auto;
+}
+
+.faq {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #c8e6c9;
+  border-radius: 8px;
+  margin-top: 30px;
+}
+
+.faq h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+@media screen and (max-width: 768px) {
+  h2 {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 16px;
+  }
+
+  #downloadButton {
+    width: 80%;
+  }
+
+  .screenshot-container img {
+    width: 90%;
+  }
+  } 
