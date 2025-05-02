@@ -34,12 +34,6 @@ h2 {
   margin-top: 20px;
 }
 
-.section-title {
-  text-align: center;
-  color: #2e7d32;
-  margin-top: 30px;
-}
-
 .description {
   text-align: center;
   margin: 20px auto;
@@ -58,20 +52,23 @@ ol li {
 }
 
 #downloadButton {
-  background-color: #2e7d32;
-  color: white;
-  padding: 12px 24px;
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+  color: #fff;
+  padding: 14px 28px;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
   cursor: pointer;
   display: block;
-  margin: 20px auto;
-  transition: background-color 0.3s ease;
+  margin: 30px auto;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 #downloadButton:hover {
-  background-color: #256728;
+  background: linear-gradient(135deg, #388e3c, #1b5e20);
+  transform: scale(1.05);
 }
 
 #popup {
@@ -139,57 +136,8 @@ footer {
 
 footer a {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
   margin: 0 5px;
-}
-
-.feature-list, .changelog-list {
-  list-style: disc;
-  padding-left: 40px;
-  color: #444;
-  margin-top: 10px;
-}
-
-.changelog-list {
-  list-style: square;
-}
-
-.testimonials {
-  background-color: #e8f5e9;
-  padding: 20px;
-  margin-top: 30px;
-  border-radius: 8px;
-  text-align: center;
-}
-
-.testimonials h3 {
-  color: #2e7d32;
-  margin-bottom: 15px;
-}
-
-.testimonials blockquote {
-  font-style: italic;
-  color: #444;
-  margin: 10px auto;
-}
-
-.faq {
-  background-color: #fff;
-  padding: 20px;
-  border: 1px solid #c8e6c9;
-  border-radius: 8px;
-  margin-top: 30px;
-}
-
-.faq h3 {
-  color: #2e7d32;
-  margin-bottom: 10px;
-}
-
-details summary {
-  cursor: pointer;
-  font-weight: bold;
-  margin: 10px 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -208,4 +156,4 @@ details summary {
   .screenshot-container img {
     width: 90%;
   }
-  } 
+}
