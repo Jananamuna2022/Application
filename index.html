@@ -6,164 +6,7 @@
   <title>Jananamuna App Download</title>
   <meta name="description" content="Download the official Jananamuna School App with step-by-step installation guide.">
   <link rel="icon" href="logo.png" type="image/png" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
-      line-height: 1.6;
-    }
-
-    nav {
-      background-color: #2e7d32;
-      padding: 6px 0;
-      text-align: center;
-    }
-
-    nav img {
-      max-width: 90px;
-      height: 90px;
-    }
-
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
-
-    h2 {
-      color: #2e7d32;
-      text-align: center;
-      margin-top: 20px;
-    }
-
-    .description {
-      text-align: center;
-      margin: 20px auto;
-      padding: 0 15px;
-      font-size: 18px;
-      color: #444;
-    }
-
-    ol {
-      padding-left: 20px;
-      margin: 20px 0;
-    }
-
-    ol li {
-      margin-bottom: 10px;
-    }
-
-    #downloadButton {
-      background-color: #2e7d32;
-      color: white;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      cursor: pointer;
-      display: block;
-      margin: 20px auto;
-      transition: background-color 0.3s ease;
-    }
-
-    #downloadButton:hover {
-      background-color: #256728;
-    }
-
-    #popup {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 1000;
-      font-size: 15px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    #popup.show {
-      display: block;
-      opacity: 1;
-    }
-
-    #progressContainer {
-      display: none;
-      text-align: center;
-      margin: 20px;
-    }
-
-    #progressBar {
-      width: 80%;
-      height: 20px;
-    }
-
-    #progressText {
-      margin-top: 8px;
-      color: #555;
-      font-size: 16px;
-    }
-
-    .screenshot-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
-
-    .screenshot-container img {
-      width: 60%;
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: opacity 0.5s ease;
-    }
-
-    footer {
-      background-color: #2e7d32;
-      color: #eee;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 40px;
-    }
-
-    footer a {
-      color: #fff;
-      text-decoration: underline;
-      margin: 0 5px;
-    }
-
-    @media screen and (max-width: 768px) {
-      h2 {
-        font-size: 22px;
-      }
-
-      .description {
-        font-size: 16px;
-      }
-
-      #downloadButton {
-        width: 80%;
-      }
-
-      .screenshot-container img {
-        width: 90%;
-      }
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
@@ -187,6 +30,43 @@
       <li>Follow on-screen steps to complete installation.</li>
     </ol>
 
+    <section>
+      <h3 class="section-title">App Features</h3>
+      <ul class="feature-list">
+        <li>View homework and assignments</li>
+        <li>Get school notices instantly</li>
+        <li>Access digital learning resources</li>
+        <li>Teacher-student communication</li>
+      </ul>
+    </section>
+
+    <section>
+      <h3 class="section-title">What's New</h3>
+      <ul class="changelog-list">
+        <li>v1.2 – Improved performance and bug fixes</li>
+        <li>v1.1 – Added notice board section</li>
+        <li>v1.0 – Initial release of the app</li>
+      </ul>
+    </section>
+
+    <section class="testimonials">
+      <h3>User Reviews</h3>
+      <blockquote>"The app keeps me updated with school events!" – A Student</blockquote>
+      <blockquote>"Easy to use and very informative." – A Parent</blockquote>
+    </section>
+
+    <section class="faq">
+      <h3>Frequently Asked Questions</h3>
+      <details>
+        <summary>Is the Jananamuna App safe to install?</summary>
+        <p>Yes, it’s officially provided by Jananamuna School.</p>
+      </details>
+      <details>
+        <summary>Why do I need to allow installation from unknown sources?</summary>
+        <p>Because this is not from the Play Store. It is a verified school app.</p>
+      </details>
+    </section>
+
     <div id="progressContainer">
       <progress id="progressBar" value="0" max="100"></progress>
       <p id="progressText">Download starts in: 10 sec</p>
@@ -205,51 +85,11 @@
     <p>&copy; 2025 Jananamuna School | All rights reserved</p>
     <p>
       <a href="mailto:support@jananamuna.edu">Contact Support</a> |
-      <a href="privacy.html">Privacy Policy</a>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="https://www.facebook.com/share/16ZhkLtBRZ/" target="_blank">Facebook</a>
     </p>
   </footer>
 
-  <script>
-    function confirmDownload() {
-      const progressContainer = document.getElementById('progressContainer');
-      const progressBar = document.getElementById('progressBar');
-      const progressText = document.getElementById('progressText');
-      const popup = document.getElementById('popup');
-
-      progressContainer.style.display = 'block';
-      let countdown = 10;
-
-      const timer = setInterval(() => {
-        countdown--;
-        const percent = ((10 - countdown) / 10) * 100;
-        progressBar.value = percent;
-        progressText.textContent = `Download starts in: ${countdown} sec`;
-
-        if (countdown <= 0) {
-          clearInterval(timer);
-          progressBar.value = 100;
-          progressText.textContent = "Starting download...";
-          window.location.href = "https://madhyabindu-my.sharepoint.com/personal/dinesh_ranamagar_madhyabindu_edu_np/_layouts/15/download.aspx?share=ETai2FIdVi9Nkq9jwKl-i_0BGVNOwROkPjywzwzxQE_B-A";
-          popup.classList.add('show');
-          setTimeout(() => popup.classList.remove('show'), 12000);
-        }
-      }, 1000);
-    }
-
-    // Image switch every 5 sec
-    const imageEl = document.getElementById('appImage');
-    const images = ['1.jpg', '2.jpg'];
-    let current = 0;
-
-    setInterval(() => {
-      current = (current + 1) % images.length;
-      imageEl.style.opacity = 0;
-      setTimeout(() => {
-        imageEl.src = images[current];
-        imageEl.style.opacity = 1;
-      }, 400);
-    }, 5000);
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
