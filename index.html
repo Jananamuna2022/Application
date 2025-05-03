@@ -30,7 +30,15 @@
       <li>If asked, allow installation from unknown sources.</li>
       <li>Follow on-screen steps to complete installation.</li>
     </ol>
+<div id="progressContainer">
+      <progress id="progressBar" value="0" max="100"></progress>
+      <p id="progressText">Download starts in: 10 sec</p>
+    </div>
 
+    <button id="downloadButton" onclick="confirmDownload()" role="button" aria-label="Download Jananamuna APK">
+      Download Jananamuna.apk
+    </button>
+    
     <section>
       <h3 class="section-title">App Features</h3>
       <ul class="feature-list">
@@ -40,14 +48,7 @@
         <li>Teacher-student communication</li>
       </ul>
     </section>
-<div id="progressContainer">
-      <progress id="progressBar" value="0" max="100"></progress>
-      <p id="progressText">Download starts in: 10 sec</p>
-    </div>
 
-    <button id="downloadButton" onclick="confirmDownload()" role="button" aria-label="Download Jananamuna APK">
-      Download Jananamuna.apk
-    </button>
  
 
     <section class="testimonials">
