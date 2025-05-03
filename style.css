@@ -1,253 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Responsive Web Page</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f0f4f8;
-      color: #333;
-      line-height: 1.6;
-    }
+body {
+  font-family: Arial, sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
 
-    nav {
-      background-color: #2e7d32;
-      padding: 6px 0;
-      text-align: center;
-    }
+nav {
+  background: #219653;
+  text-align: center;
+  padding: 10px 0;
+}
 
-    nav img {
-      max-width: 200px;
-      height: 200px;
-    }
+nav img {
+  width: 120px;
+  height: auto;
+}
 
-    main {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 20px;
-    }
+main {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
 
-    h2 {
-      color: #2e7d32;
-      text-align: center;
-      margin-top: 20px;
-    }
+h2 {
+  color: #219653;
+  text-align: center;
+  margin-bottom: 10px;
+}
 
-    .description {
-      text-align: center;
-      margin: 20px auto;
-      padding: 0 15px;
-      font-size: 18px;
-      color: #444;
-    }
+.description {
+  text-align: center;
+  font-size: 16px;
+  margin: 20px 0;
+}
 
-    ol {
-      padding-left: 20px;
-      margin: 20px 0;
-    }
+ol {
+  margin: 20px;
+}
 
-    ol li {
-      margin-bottom: 10px;
-    }
+ol li {
+  margin-bottom: 8px;
+}
 
-    #downloadButton {
-      background: linear-gradient(135deg, #4caf50, #2e7d32);
-      color: #fff;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 12px;
-      font-size: 18px;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      cursor: pointer;
-      display: block;
-      margin: 30px auto;
-      transition: transform 0.3s ease, background-color 0.3s ease;
-    }
+#downloadButton {
+  background: #219653;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  display: block;
+  margin: 30px auto;
+  transition: background 0.3s;
+}
 
-    #downloadButton:hover {
-      background: linear-gradient(135deg, #388e3c, #1b5e20);
-      transform: scale(1.05);
-    }
+#downloadButton:hover {
+  background: #1e7e46;
+}
 
-    #popup {
-      display: none;
-      position: fixed;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      padding: 14px 24px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-      z-index: 1000;
-      font-size: 15px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
+#popup {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
 
-    #popup.show {
-      display: block;
-      opacity: 1;
-    }
+#popup.show {
+  display: block;
+  opacity: 1;
+}
 
-    #progressContainer {
-      display: none;
-      text-align: center;
-      margin: 20px;
-    }
+#progressContainer {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
 
-    #progressBar {
-      width: 80%;
-      height: 20px;
-    }
+#progressBar {
+  width: 80%;
+  height: 16px;
+}
 
-    #progressText {
-      margin-top: 8px;
-      color: #555;
-      font-size: 16px;
-    }
+#progressText {
+  margin-top: 8px;
+  font-size: 14px;
+}
 
-    .screenshot-container {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 20px 0;
-    }
+.screenshot-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
 
-    .screenshot-container img {
-      width: 60%;
-      max-width: 100%;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: opacity 0.5s ease;
-    }
+.screenshot-container img {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 6px;
+}
 
-    footer {
-      background-color: #2e7d32;
-      color: #eee;
-      padding: 20px;
-      text-align: center;
-      font-size: 14px;
-      margin-top: 40px;
-    }
+footer {
+  background: #219653;
+  color: white;
+  text-align: center;
+  padding: 12px;
+  font-size: 14px;
+}
 
-    footer a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 5px;
-    }
+footer a {
+  color: white;
+  text-decoration: underline;
+  margin: 0 5px;
+}
 
-    @media screen and (max-width: 768px) {
-      h2 {
-        font-size: 22px;
-      }
+@media (max-width: 600px) {
+  .description {
+    font-size: 14px;
+  }
 
-      .description {
-        font-size: 16px;
-      }
-
-      #downloadButton {
-        width: 80%;
-      }
-
-      .screenshot-container img {
-        width: 90%;
-      }
-    }
-
-    @media screen and (max-width: 480px) {
-      .description {
-        font-size: 14px;
-      }
-
-      #downloadButton {
-        font-size: 16px;
-        padding: 12px 20px;
-      }
-
-      nav img {
-        height: 120px;
-        max-width: 150px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <img src="https://via.placeholder.com/200" alt="Logo">
-  </nav>
-
-  <main>
-    <h2>Welcome to Our Responsive Page</h2>
-    <p class="description">This is a sample responsive page with a styled download button, a popup message, and progress bar.</p>
-
-    <ol>
-      <li>Click the download button to simulate a file download.</li>
-      <li>Watch the progress bar update.</li>
-      <li>A popup will notify you when the download is complete.</li>
-    </ol>
-
-    <div class="screenshot-container">
-      <img src="https://via.placeholder.com/600x400" alt="Screenshot">
-    </div>
-
-    <button id="downloadButton">Download File</button>
-
-    <div id="progressContainer">
-      <progress id="progressBar" value="0" max="100"></progress>
-      <p id="progressText">Downloading... 0%</p>
-    </div>
-
-    <div id="popup">Download Complete!</div>
-  </main>
-
-  <footer>
-    &copy; 2025 My Responsive Site | <a href="#">Privacy</a> | <a href="#">Contact</a>
-  </footer>
-
-  <script>
-    const downloadButton = document.getElementById('downloadButton');
-    const popup = document.getElementById('popup');
-    const progressContainer = document.getElementById('progressContainer');
-    const progressBar = document.getElementById('progressBar');
-    const progressText = document.getElementById('progressText');
-
-    downloadButton.addEventListener('click', () => {
-      let progress = 0;
-      popup.classList.remove('show');
-      progressContainer.style.display = 'block';
-      progressBar.value = 0;
-      progressText.textContent = "Downloading... 0%";
-
-      const interval = setInterval(() => {
-        progress += 10;
-        progressBar.value = progress;
-        progressText.textContent = `Downloading... ${progress}%`;
-
-        if (progress >= 100) {
-          clearInterval(interval);
-          progressText.textContent = "Download Complete!";
-          popup.classList.add('show');
-
-          setTimeout(() => {
-            popup.classList.remove('show');
-            progressContainer.style.display = 'none';
-          }, 3000);
-        }
-      }, 400);
-    });
-  </script>
-
-</body>
-</html>
+  #downloadButton {
+    width: 90%;
+    font-size: 14px;
+  }
+}
